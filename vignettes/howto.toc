@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {paragraph}{Outline}{1}
+\contentsline {section}{\numberline {2}Rule}{1}
+\contentsline {section}{\numberline {3}Decision table}{2}
+\contentsline {section}{\numberline {4}Discernibility Matrix}{4}
+\contentsline {section}{\numberline {5}Condition Reduct}{5}
+\contentsline {section}{\numberline {6}Value Reduct}{6}
+\contentsline {section}{\numberline {7}Examples}{7}
+\contentsline {subsection}{\numberline {7.1}Example 1}{7}
+\contentsline {subsection}{\numberline {7.2}Example 2}{9}

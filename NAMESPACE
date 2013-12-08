@@ -1,0 +1,37 @@
+exportPattern("^[[:alpha:]]+")
+exportMethods(
+    "checkConsistency",
+    "classifyDecisionTable",
+    "computeConsistencyMatrix",
+    "computeCore",
+    "computeDiscernibilityMatrix",
+    "computeSupportConsistency",
+    "computeValueReduct",
+    "findAllReductsFromCore",
+    "findFirstConditionReduct",
+    "findSmallestReductFamilyFromCore",
+    "getColumnIds",
+    "getCondition",
+    "getConditionReduct",
+    "getConditionReductDecisionTable",
+    "getDecision",
+    "getDecisionTable",
+    "getDiscernibilityMatrix",
+    "getRule",
+    "getValueReduct",
+    "getValueReductConditionReduct",
+    "initialize",
+    "isConditionReduct",
+    "print",
+    "removeDuplicatedRulesCR",
+    "removeDuplicatedRulesDT",
+    "removeDuplicatedRulesVR",
+    "show",
+    "simplifyDecisionTable" 
+)
+exportClasses(
+     "DecisionTable",
+     "ConditionReduct",
+     "DiscernibilityMatrix",
+     "ValueReduct" 
+)
