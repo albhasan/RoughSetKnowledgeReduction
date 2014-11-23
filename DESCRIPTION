@@ -4,8 +4,8 @@ Title: Simplification of Decision Tables using Rough Sets
 Version: 0.1
 Date: 2012-03-13
 Author: Alber Sanchez
-Maintainer: Alber Sanchez <alber.sanchez@uni-muenster.de>
+Maintainer: Alber Sanchez <a.sanchez@uni-muenster.de>
 Description: Rough sets theory can be applied to reduce knowledge from decision tables. This package includes a few S4 classes for doing so.
-License: MIT | file LICENSE
+License: MIT + file LICENSE
 Depends: methods
 Collate: DecisionTable.R ConditionReduct.R DiscernibilityMatrix.R ValueReduct.R
