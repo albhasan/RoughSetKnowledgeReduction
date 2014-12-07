@@ -1,10 +1,10 @@
 \documentclass[a4paper]{article}
 
-\title{How to: Simplify decision tables using Rough Sets. The rs package for R.}
+\title{How to: Simplify decision tables using Rough Sets. The RoughSetKnowledgeReduction package for R.}
 
 \author{Alber Sanchez.\\Institute f\"{u}r Geoinformatik.\\Westf\"{a}lische Wilhelms Universit\"{a}t M\"{u}nster.\\ Weseler Strasse 253, 48151 M\"{u}nster, Deutschland.\\alber.sanchez@uni-muenster.de}
 
-%\VignetteIndexEntry{How to of the rs package}
+%\VignetteIndexEntry{How to of the RoughSetKnowledgeReduction package}
 
 \begin{document}
 \SweaveOpts{concordance=TRUE}
@@ -12,13 +12,13 @@
 \maketitle
 
 \begin{abstract}
-This document is a brief introductory guide to the use of the R package "rs". The package allows users to reduce knowledge by simplifying rules in decision tables according to Rough Set theory. It is not a complete implementation of Rough Set theory; it just has the minimum functions to simplify decision tables.
+This document is a brief introductory guide to the use of the R package "RoughSetKnowledgeReduction". The package allows users to reduce knowledge by simplifying rules in decision tables according to Rough Set theory. It is not a complete implementation of Rough Set theory; it just has the minimum functions to simplify decision tables.
 \end{abstract}
 
 \tableofcontents
 
 \section{Introduction}
-The "rs" package pretends to be an R implementation of the section 6.3 "Simplification of Decision Tables" of the book written by \cite{pawlak}. In the context of artificial intelligence, Rough Set theory is considered a solution alternative to the classificatory problem, allowing to discard superfluous or irrelevant information to focus in the most determinant conditions for taking a decision. Rough Set theory is known for being able to deal with contradictory or even incomplete information, making no assumptions about the internal structure of the data. Rough Sets theory is unable to deal with continuous variables which is a clear disadvantage. For more details about Rough Set theory consult \cite{pawlak}.
+The "RoughSetKnowledgeReduction" package pretends to be an R implementation of the section 6.3 "Simplification of Decision Tables" of the book written by \cite{pawlak}. In the context of artificial intelligence, Rough Set theory is considered a solution alternative to the classificatory problem, allowing to discard superfluous or irrelevant information to focus in the most determinant conditions for taking a decision. Rough Set theory is known for being able to deal with contradictory or even incomplete information, making no assumptions about the internal structure of the data. Rough Sets theory is unable to deal with continuous variables which is a clear disadvantage. For more details about Rough Set theory consult \cite{pawlak}.
 
 \paragraph{Outline}
 First, a revision of the classes of the package is made (sections 1 to 6) and at the end, examples of its use are given (section 7).
@@ -68,7 +68,7 @@ $\Rightarrow$ I'm not sure of going to class}
 Could be represented in R using the vector:
 
 <<echo=FALSE,results=hide>>=
-library(rs)
+library(RoughSetKnowledgeReduction)
 @
 
 <<>>=
@@ -96,7 +96,7 @@ dt1 <- decisionTable(exampleMatrix1)
 
 Due to the intrinsic nature of information, a decision table probably contains duplicated or even contradictory rules. A contradictory or inconsistent rule is a rule in a decision table for which there is at least another rule in the same decision table with exactly the same conditions and a different decision. If any pair of rules have one single different condition they are consistent no matter the decision and if a pair of rules in a decision table have the exactly the same conditions and decision, in other words if they are a duplicated rule, they are consistent. 
 
-The "rs" package has some tools for identifying inconsistent rules; for example if the last column of the example matrix 1 is removed, then some rules become inconsistent:
+The "RoughSetKnowledgeReduction" package has some tools for identifying inconsistent rules; for example if the last column of the example matrix 1 is removed, then some rules become inconsistent:
 
 <<>>=
 dt <- decisionTable(exampleMatrix1[,-5])
@@ -124,7 +124,7 @@ computeDiscernibilityMatrix(dt1)
 Here it is evident that R1 and R2 have different values for conditions 1, 2, 3 and 4 but R1 and R5 only difference is at condition 4. Matrix elements where there just a one condition difference allow identifying the condition core of the decision table, in this example the core is made of C1, C2 and C4. The importance of the core is that allows finding the condition reducts.
 
 \section{Condition Reduct}
-A condition reduct is a decision table where the superfluous conditions have been removed. The "superfluousness" of a condition is determined by comparing the indiscernibility function of the decision table and the indiscernibility function of the decision table without the superfluous condition. In \cite{pawlak} there is no reference to such a thing as a "condition" or "value" reduct, these are just artifacts created for the "rs" package.
+A condition reduct is a decision table where the superfluous conditions have been removed. The "superfluousness" of a condition is determined by comparing the indiscernibility function of the decision table and the indiscernibility function of the decision table without the superfluous condition. In \cite{pawlak} there is no reference to such a thing as a "condition" or "value" reduct, these are just artifacts created for the "RoughSetKnowledgeReduction" package.
 
 In a Decision Table object can exist simultaneously many different condition reducts but since the goal here is the reduction of knowledge, the smallest condition reduct are the central target. By the smallest condition reduct is understood the reduct with the minimum number of conditions but sometimes there can be more than one condition reduct meeting this requirement; in that case, the set of smallest condition reduct is called a family. The Decision Table class has 3 methods to find condition reducts.
 
@@ -280,9 +280,9 @@ print(vr)
 
 Notice how some rule ids are duplicated (on the left side), indicating the origin rule of the Condition Reduct object for the rule in the Value Reduct object. This Value Reduct has the same results showed in the table 7 of \cite{pawlak} at page 75.
 
-The rest of the example is about making combinations of rules (2 rules come from R1, 2 from R2, 2 from R6, 3 from R7 and 1 from each of the rest, that is 24 combinations) in order to find the smallest possible value reduct. So far, the "rs" package does not include a method for making all the possible combinations and it must be taken into account that this criteria does not rely on metrics like support and consistency, it just seeks the smallest value reduct. 
+The rest of the example is about making combinations of rules (2 rules come from R1, 2 from R2, 2 from R6, 3 from R7 and 1 from each of the rest, that is 24 combinations) in order to find the smallest possible value reduct. So far, the "RoughSetKnowledgeReduction" package does not include a method for making all the possible combinations and it must be taken into account that this criteria does not rely on metrics like support and consistency, it just seeks the smallest value reduct. 
 
-Using a combination of R functions and the "rs" package the example continues building 2 options of the value reduct:
+Using a combination of R functions and the "RoughSetKnowledgeReduction" package the example continues building 2 options of the value reduct:
 
 <<>>=
 vrMat <- getValueReduct(vr)# Matrix representation of the value reduct
@@ -312,7 +312,7 @@ The Value reduct object vr4 corresponds to table 11 on page 77 of \cite{pawlak}.
 rm(cr,dt,dtMatrix,vr,vr1,vr2,vr3,vr4,vrMat,vr3Mat)
 @
 
-This example exposes the ability of the "rs" package to reproduce the section "6.3 Simplification of Decision Tables" of \cite{pawlak}.
+This example exposes the ability of the "RoughSetKnowledgeReduction" package to reproduce the section "6.3 Simplification of Decision Tables" of \cite{pawlak}.
 
 
 \begin{thebibliography}{9}

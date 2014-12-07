@@ -1,11 +1,11 @@
-Package: rs
+Package: RoughSetKnowledgeReduction
 Type: Package
 Title: Simplification of Decision Tables using Rough Sets
 Version: 0.1
 Date: 2012-03-13
 Author: Alber Sanchez
 Maintainer: Alber Sanchez <a.sanchez@uni-muenster.de>
-Description: Rough Sets were introduced by Zdzislaw Pawlak on his book "Rough Sets: Theoretical Aspects of Reasoning About Data". Rough Sets provide a formal method to approximate crisp sets when the set-element belonging relationship is either known or undetermined. This enables the use of Rough Sets for reasoning about incomplete or contradictory knowledge. A decision table is a prescription of the decisions to make given some conditions. Such decision tables can be reduced without losing prescription ability. This package provides the classes and methods for knowledge reduction from decision tables as presented in the chapter 7 of the aforementioned book. This package provides functions for calculating the discernibility matrix, the core and the reducts of a decision table.
+Description: Rough Sets were introduced by Zdzislaw Pawlak on his book "Rough Sets: Theoretical Aspects of Reasoning About Data". Rough Sets provide a formal method to approximate crisp sets when the set-element belonging relationship is either known or undetermined. This enables the use of Rough Sets for reasoning about incomplete or contradictory knowledge. A decision table is a prescription of the decisions to make given some conditions. Such decision tables can be reduced without losing prescription ability. This package provides the classes and methods for knowledge reduction from decision tables as presented in the chapter 7 of the aforementioned book. This package provides functions for calculating the both the discernibility matrix and the essential parts of decision tables.
 License: MIT + file LICENSE
 Depends: methods
 Collate: DecisionTable.R ConditionReduct.R DiscernibilityMatrix.R ValueReduct.R
